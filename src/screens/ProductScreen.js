@@ -38,7 +38,7 @@ import axios from "axios";
 
 //----COMPONENT----//
 const ProductScreen = ({navigation}) => {
-    //Data and State
+    //Data and Sta
     const {state: {scales, language, appSettings}} = useContext(AppSettingsContext);
     const {addToCart} = useContext(MenuContext);
 

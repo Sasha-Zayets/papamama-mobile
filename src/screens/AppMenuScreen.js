@@ -85,6 +85,13 @@ const AppMenuScreen = ({navigation}) => {
                                                                     nounderline
                                                                     unreadNotifications={unreadNotifications}
                                                                 />
+                                                                <Spacer spaceHeight={10}/>
+                                                                <ButtonSimpleLink
+                                                                    title={translator.translate(language, "Програма лояльності")}
+                                                                    callback={() => navigation.navigate('LoyaltyProgram')}
+                                                                    medium
+                                                                    nounderline
+                                                                />
                                                             </>
                                                         )
                                                         : null

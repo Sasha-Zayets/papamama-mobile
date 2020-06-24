@@ -61,6 +61,11 @@ const styles = (scales) => StyleSheet.create({
         fontFamily: app_styles(scales).fonts.weight.bold,
         fontSize: Math.round(scales.fontScale * 12),
         color: app_styles(scales).colors.text.grey
+    },
+    bonus: {
+        marginTop: 5,
+        fontFamily: app_styles(scales).fonts.weight.bold,
+        color: app_styles(scales).colors.text.red
     }
 });
 

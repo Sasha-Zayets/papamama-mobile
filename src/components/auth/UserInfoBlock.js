@@ -88,6 +88,7 @@ const UserInfoBlock = ({ navigation }) => {
                                                     ? <Text style={styles(scales).user_info}>{reformatUserPhone(user.phone)}</Text>
                                                     : null
                                                 }
+                                                <Text style={styles(scales).bonus}>25 балів</Text>
                                             </View>
                                         </View>
                                         <TouchableOpacity onPress={() => navigation.navigate("EditProfile")} activeOpacity={.7}>

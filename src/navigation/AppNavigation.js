@@ -45,6 +45,7 @@ import ProductScreen from "../screens/ProductScreen";
 import PizzaConstructorScreen from "../screens/PizzaConstructorScreen";
 import NewsScreen from "../screens/NewsScreen";
 import PostScreen from "../screens/PostScreen";
+import LoyaltyProgramScreen from "../screens/LoyaltyProgramScreen";
 
 
 //MAIN STACK
@@ -71,7 +72,8 @@ const AppStack = createStackNavigator(
         Product: ProductScreen,
         PizzaConstructor: PizzaConstructorScreen,
         News: NewsScreen,
-        Post: PostScreen
+        Post: PostScreen,
+        LoyaltyProgram: LoyaltyProgramScreen
     },
     {
         initialRouteName: 'Menu',
