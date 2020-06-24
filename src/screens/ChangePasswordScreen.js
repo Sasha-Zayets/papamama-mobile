@@ -2,7 +2,7 @@
 //React
 import React, { useState, useContext, useEffect } from 'react';
 //React native
-import { View, KeyboardAvoidingView, ScrollView, } from 'react-native';
+import { View, KeyboardAvoidingView, ScrollView, Image } from 'react-native';
 //React-native-vector-icons package
 import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
 import icoMoonConfig from '../../selection.json';
@@ -136,11 +136,13 @@ const ChangePasswordScreen = ({ navigation }) => {
                                         <Block>
                                             <Spacer spaceHeight={15} />
                                             <View style={styles(scales).logo_container}>
-                                                <IcoMoonIcon
-                                                    name={"logo_emma"}
-                                                    size={Math.round(scales.widthScale * 75)}
-                                                    color={app_styles(scales).colors.app.blue}
-                                                />
+                                                <Image
+                                                    source={require('../../assets/images/new-logo.png')}
+                                                    style={{
+                                                        width: Math.round(scales.widthScale * 150),
+                                                        height: Math.round(scales.widthScale * 60)
+                                                    }}
+                                                    resizeMode="contain"/>
                                             </View>
                                             <Spacer spaceHeight={45} />
                                             <PasswordInput
@@ -172,7 +174,7 @@ const ChangePasswordScreen = ({ navigation }) => {
                                             <Spacer spaceHeight={30} />
                                             <ButtonPrimary
                                                 title={translator.translate(language, "Змінити пароль")}
-                                                color={app_styles(scales).colors.app.blue}
+                                                color={app_styles(scales).colors.app.black}
                                                 isDataLoading={isDataLoading}
                                                 callback={formSubmit}
                                             />

@@ -21,19 +21,27 @@ const InitAppLoadingIndicator = () => {
     //Template
     return (
         <>
-            <StatusBar backgroundColor={app_styles(scales).colors.app.black} barStyle="light-content"/>
+            <StatusBar backgroundColor={app_styles(scales).colors.text.red} barStyle="dark-content"/>
             <SafeView>
-                <ImageBackground
-                    source={require("../../../assets/splash.png")}
-                    style={styles(scales).main_container}
-                >
-                    <View style={app_styles(scales).row_center}>
-                        <ActivityIndicator color={app_styles(scales).colors.app.white} size="small"/>
-                        <VerticalSpacer spaceWidth={7}/>
-                        <Text style={styles(scales).note}>Loading...</Text>
-                    </View>
-                    <Spacer spaceHeight={40}/>
-                </ImageBackground>
+                <View style={{
+                  height: '100%',
+                  backgroundColor: app_styles(scales).colors.app.black,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}>
+                  <ImageBackground
+                      source={require("../../../assets/images/new-logo.png")}
+                      style={styles(scales).main_container}
+                  />
+                  <Spacer spaceHeight={40}/>
+                  <View style={app_styles(scales).row_center}>
+                    <ActivityIndicator color={app_styles(scales).colors.app.white} size="small"/>
+                    <VerticalSpacer spaceWidth={7}/>
+                    <Text style={styles(scales).note}>Завантаження...</Text>
+                  </View>
+                </View>
             </SafeView>
         </>
 

@@ -2,7 +2,7 @@
 //React
 import React, { useEffect, useState, useContext } from 'react';
 //React native
-import { View } from 'react-native';
+import {Image, View} from 'react-native';
 //Context
 import { Context as AppSettingsContext } from "../context/AppSettingsContext";
 import { Context as AuthContext } from "../context/AuthContext";
@@ -109,13 +109,15 @@ const PasswordForgotScreen = ({ navigation }) => {
                                 <Block>
                                     <Spacer spaceHeight={15} />
                                     <View style={styles(scales).logo_container}>
-                                        <IcoMoonIcon
-                                            name={"logo_emma"}
-                                            size={Math.round(scales.widthScale * 75)}
-                                            color={app_styles(scales).colors.app.blue}
-                                        />
+                                        <Image
+                                            source={require('../../assets/images/new-logo.png')}
+                                            style={{
+                                                width: Math.round(scales.widthScale * 160),
+                                                height: Math.round(scales.widthScale * 70)
+                                            }}
+                                            resizeMode="contain"/>
                                     </View>
-                                    <Spacer spaceHeight={120} />
+                                    <Spacer spaceHeight={100} />
                                     <SimpleInput
                                         callback={handleInputs}
                                         error={validationErrors.email}
@@ -127,7 +129,7 @@ const PasswordForgotScreen = ({ navigation }) => {
                                     <Spacer spaceHeight={30} />
                                     <ButtonPrimary
                                         title={translator.translate(language, "Відправити")}
-                                        color={app_styles(scales).colors.app.blue}
+                                        color={app_styles(scales).colors.app.black}
                                         isDataLoading={isDataLoading}
                                         callback={submitForm}
                                     />

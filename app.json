@@ -16,13 +16,13 @@
       "iosDisplayInForeground": true
     },
     "androidStatusBar": {
-      "backgroundColor": "#465C87",
-      "barStyle": "light-content"
+      "backgroundColor": "#000000",
+      "barStyle": "dark-content"
     },
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "cover",
-      "backgroundColor": "#465c87"
+      "image": "./assets/images/new-logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

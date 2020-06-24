@@ -190,11 +190,13 @@ const LogInScreen = ({ navigation }) => {
                                 <Block>
                                     <Spacer spaceHeight={15} />
                                     <View style={styles(scales).logo_container}>
-                                        <IcoMoonIcon
-                                            name={"logo_emma"}
-                                            size={Math.round(scales.widthScale * 75)}
-                                            color={app_styles(scales).colors.app.blue}
-                                        />
+                                        <Image
+                                            source={require('../../assets/images/new-logo.png')}
+                                            style={{
+                                                width: Math.round(scales.widthScale * 160),
+                                                height: Math.round(scales.widthScale * 70)
+                                            }}
+                                            resizeMode="contain"/>
                                     </View>
                                     <Spacer spaceHeight={45} />
                                     <PhoneInput
