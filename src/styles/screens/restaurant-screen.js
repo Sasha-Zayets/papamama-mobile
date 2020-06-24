@@ -72,7 +72,7 @@ const styles = (scales) => StyleSheet.create({
         marginHorizontal: Math.round(scales.widthScale * 4)
     },
     contacts_block: {
-        backgroundColor: app_styles(scales).colors.app.blue,
+        backgroundColor: app_styles(scales).colors.app.black,
         paddingHorizontal: Math.round(scales.widthScale * 16),
         paddingTop: Math.round(scales.heightScale * 10),
         paddingBottom: Math.round(scales.heightScale * 20)

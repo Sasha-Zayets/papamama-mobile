@@ -49,7 +49,7 @@ const ClearCartModal = ({ isOpened, clearCallback, cancelCallback }) => {
                             <ButtonModal
                                 title={translator.translate(language, "Відміна")}
                                 callback={cancelCallback}
-                                color={app_styles(scales).colors.app.blue}
+                                color={app_styles(scales).colors.text.red}
                             />
                              <VerticalSpacer spaceWidth={40} />
                             <ButtonModal

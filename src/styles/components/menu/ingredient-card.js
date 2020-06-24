@@ -24,12 +24,13 @@ const styles = (scales) => StyleSheet.create({
     price: {
         fontFamily: app_styles(scales).fonts.weight.medium,
         fontSize: Math.round(scales.fontScale * 12),
-        color: app_styles(scales).colors.app.blue
+        color: app_styles(scales).colors.text.black
     },
     uncheck_btn: {
+        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: app_styles(scales).colors.app.blue,
+        backgroundColor: app_styles(scales).colors.app.black,
         width: Math.round(scales.widthScale * 15),
         height: Math.round(scales.widthScale * 15),
         borderRadius: Math.round(scales.widthScale * 15),
@@ -70,7 +71,9 @@ const styles = (scales) => StyleSheet.create({
         borderRadius: Math.round(scales.widthScale * 22),
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: app_styles(scales).colors.app.blue
+        backgroundColor: app_styles(scales).colors.app.white,
+        borderWidth: 1,
+        borderColor: app_styles(scales).colors.app.black
     },
     ingredient_quantity_container: {    
         width: Math.round(scales.widthScale * 28),

@@ -217,7 +217,7 @@ const LogInScreen = ({ navigation }) => {
                                     <Spacer spaceHeight={30} />
                                     <ButtonPrimary
                                         title={translator.translate(language, "Увійти")}
-                                        color={app_styles(scales).colors.app.blue}
+                                        color={app_styles(scales).colors.app.black}
                                         isDataLoading={isLoginProcess}
                                         callback={submitForm}
                                     />

@@ -218,22 +218,22 @@ const ProductCard = ({product, quantityCallBack, variantCallback, sauceCallback,
                                     : (
                                         <View style={styles(scales).manipulators_block}>
                                             <TouchableOpacity
-                                                style={[styles(scales).button, {backgroundColor: app_styles(scales).colors.app.light_grey}]}
+                                                style={[styles(scales).button, {backgroundColor: app_styles(scales).colors.app.black}]}
                                                 onPress={() => changeProductQuantity()}
                                                 activeOpacity={0.8}
                                             >
-                                                <IcoMoonIcon name="minus" color={app_styles(scales).colors.text.primary}
+                                                <IcoMoonIcon name="minus" color={app_styles(scales).colors.text.white}
                                                              size={Math.round(scales.widthScale * 16)}/>
                                             </TouchableOpacity>
                                             <View style={styles(scales).product_quantity_container}>
                                                 <Text style={styles(scales).product_quantity}>{productQuantity}</Text>
                                             </View>
                                             <TouchableOpacity
-                                                style={[styles(scales).button, {backgroundColor: app_styles(scales).colors.app.light_grey}]}
+                                                style={[styles(scales).button, {backgroundColor: app_styles(scales).colors.app.black}]}
                                                 onPress={() => changeProductQuantity("+")}
                                                 activeOpacity={0.8}
                                             >
-                                                <IcoMoonIcon name="plus" color={app_styles(scales).colors.text.primary}
+                                                <IcoMoonIcon name="plus" color={app_styles(scales).colors.text.white}
                                                              size={Math.round(scales.widthScale * 16)}/>
                                             </TouchableOpacity>
                                         </View>

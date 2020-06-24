@@ -22,7 +22,7 @@ const ButtonRadio = ({ callback, value, isSelected, label }) => {
     //Template
     return (
         <TouchableOpacity onPress={() => callback(value)} style={styles(scales).btn_group} activeOpacity={.7}>
-            <View style={[styles(scales).outer_container, {borderColor: isSelected ? app_styles(scales).colors.app.blue : "#CCCCCC"}]}>
+            <View style={[styles(scales).outer_container, {borderColor: isSelected ? app_styles(scales).colors.app.black : "#CCCCCC"}]}>
                 {
                     isSelected ? <View style={styles(scales).inner_container}></View> : null
                 }

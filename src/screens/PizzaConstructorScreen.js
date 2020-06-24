@@ -492,12 +492,12 @@ const PizzaConstructorScreen = ({navigation}) => {
                                                                 <Spacer spaceHeight={15}/>
                                                                 <View style={styles(scales).manipulators_block}>
                                                                     <TouchableOpacity
-                                                                        style={[styles(scales).button, {backgroundColor: app_styles(scales).colors.app.blue}]}
+                                                                        style={[styles(scales).button, {backgroundColor: app_styles(scales).colors.app.white, borderWidth: 1, borderColor: app_styles(scales).colors.app.black}]}
                                                                         onPress={() => quantityHandler('-')}
                                                                         activeOpacity={0.8}
                                                                     >
                                                                         <IcoMoonIcon name="minus"
-                                                                                     color={app_styles(scales).colors.app.white}
+                                                                                     color={app_styles(scales).colors.app.black}
                                                                                      size={Math.round(scales.widthScale * 16)}/>
                                                                     </TouchableOpacity>
                                                                     <View style={styles(scales).product_quantity_container}>
@@ -505,12 +505,12 @@ const PizzaConstructorScreen = ({navigation}) => {
                                                                             style={styles(scales).product_quantity}>{product.quantity}</Text>
                                                                     </View>
                                                                     <TouchableOpacity
-                                                                        style={[styles(scales).button, {backgroundColor: app_styles(scales).colors.app.blue}]}
+                                                                        style={[styles(scales).button, {backgroundColor: app_styles(scales).colors.app.white, borderWidth: 1, borderColor: app_styles(scales).colors.app.black}]}
                                                                         onPress={() => quantityHandler('+')}
                                                                         activeOpacity={0.8}
                                                                     >
                                                                         <IcoMoonIcon name="plus"
-                                                                                     color={app_styles(scales).colors.app.white}
+                                                                                     color={app_styles(scales).colors.app.black}
                                                                                      size={Math.round(scales.widthScale * 16)}/>
                                                                     </TouchableOpacity>
                                                                 </View>

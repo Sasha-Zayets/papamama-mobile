@@ -7,7 +7,7 @@ import { app_styles } from "../../app_styles";
 //----STYLES----//
 const styles = (scales) => StyleSheet.create({
     container: {
-        backgroundColor: app_styles(scales).colors.app.white,
+        backgroundColor: app_styles(scales).colors.app.black,
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingVertical: Math.round(scales.heightScale * 10),
@@ -28,7 +28,7 @@ const styles = (scales) => StyleSheet.create({
     }, 
     title: {
         fontFamily: app_styles(scales).fonts.weight.bold,
-        color: app_styles(scales).colors.app.black,
+        color: app_styles(scales).colors.app.white,
     },
     menu_button: {
         width: Math.round(scales.widthScale * 26),
@@ -40,12 +40,16 @@ const styles = (scales) => StyleSheet.create({
         width: Math.round(scales.widthScale * 26),
         height: Math.round(scales.heightScale * 2),
         borderRadius: Math.round(scales.widthScale * 1),
-        backgroundColor: app_styles(scales).colors.app.black
+        backgroundColor: app_styles(scales).colors.app.white
     },
     logo_container: {
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
+    },
+    logo_img: {
+        width: 120,
+        height: 30,
     },
     cart_group_container: {
         flexDirection: 'row', 

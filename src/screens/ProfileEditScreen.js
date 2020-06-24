@@ -326,7 +326,7 @@ const ProfileEditScreen = ({ navigation }) => {
                                                 : null
                                         }
                                         <ButtonPrimary
-                                            color={app_styles(scales).colors.app.blue}
+                                            color={app_styles(scales).colors.app.black}
                                             callback={formSubmit}
                                             title={translator.translate(language, "Зберегти")}
                                             isDataLoading={isDataLoading}

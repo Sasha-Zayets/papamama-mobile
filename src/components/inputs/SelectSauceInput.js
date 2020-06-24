@@ -88,7 +88,7 @@ const SelectSauceInput = ({ callback, data }) => {
                         <View style={styles(scales).card_header}>
                             <Text style={styles(scales).card_title}>{translator.translate(language, "Оберіть соус")}</Text>
                             <TouchableOpacity onPress={() => setListOpened(!listOpened)} style={styles(scales).close_modal_button}>
-                                <IcoMoonIcon name="cancel" color={app_styles(scales).colors.app.white} size={Math.round(scales.widthScale * 12)} style={styles(scales).cancel_icon} />
+                                <IcoMoonIcon name="cancel" color={app_styles(scales).colors.app.black} size={Math.round(scales.widthScale * 12)} style={styles(scales).cancel_icon} />
                             </TouchableOpacity>
                         </View>
                         {/* Card body */}

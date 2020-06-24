@@ -93,7 +93,7 @@ const SelectIngredientsCategoryInput = ({ callback, dataList, defaultValue }) =>
                         <View style={styles(scales).card_header}>
                             <Text style={styles(scales).card_title}>{translator.translate(language, 'Категорія складників')}</Text>
                             <TouchableOpacity onPress={() => setModalOpened(!modalOpened)} style={styles(scales).close_modal_button}>
-                                <IcoMoonIcon name="cancel" color={app_styles(scales).colors.text.white} size={Math.round(scales.widthScale * 12)} style={styles(scales).cancel_icon} />
+                                <IcoMoonIcon name="cancel" color={app_styles(scales).colors.text.black} size={Math.round(scales.widthScale * 12)} style={styles(scales).cancel_icon} />
                             </TouchableOpacity>
                         </View>
                         {/* Card body */}

@@ -194,7 +194,7 @@ const RegistrationScreen = ({ navigation }) => {
                                         <Spacer spaceHeight={30} />
                                         <ButtonPrimary
                                             title={translator.translate(language, "Зареєструватися")}
-                                            color={app_styles(scales).colors.app.blue}
+                                            color={app_styles(scales).colors.app.black}
                                             isDataLoading={isDataLoading}
                                             callback={submitForm}
                                         />

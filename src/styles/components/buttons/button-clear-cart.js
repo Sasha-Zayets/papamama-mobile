@@ -13,7 +13,7 @@ const styles = (scales) => StyleSheet.create({
         alignItems: 'center',
         borderTopWidth: Math.round(scales.heightScale),
         borderBottomWidth: Math.round(scales.heightScale),
-        borderColor: app_styles(scales).colors.text.grey
+        borderColor: app_styles(scales).colors.app.black,
     },   
     title: {
         color: app_styles(scales).colors.text.primary,

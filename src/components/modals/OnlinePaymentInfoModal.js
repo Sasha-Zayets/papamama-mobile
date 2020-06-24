@@ -38,7 +38,7 @@ const OnlinePaymentInfoModal = ({ isOpened, nextCallback, cancelCallback }) => {
                     {/* Card body */}
                     <View style={styles(scales).card_body}>
                         <View style={styles(scales).icon_container}>
-                            <IcoMoonIcon name="shopping-bag-checked" color={app_styles(scales).colors.app.blue} size={Math.round(scales.widthScale * 50)} />
+                            <IcoMoonIcon name="shopping-bag-checked" color={app_styles(scales).colors.app.black} size={Math.round(scales.widthScale * 50)} />
                         </View>
                         <Spacer spaceHeight={16} />
                         <Text style={styles(scales).card_title}>{translator.translate(language, "Дякуємо за замовлення!")}</Text>
@@ -49,7 +49,7 @@ const OnlinePaymentInfoModal = ({ isOpened, nextCallback, cancelCallback }) => {
                             <ButtonModal
                                 title={translator.translate(language, "Відміна")}
                                 callback={cancelCallback}
-                                color={app_styles(scales).colors.app.blue}
+                                color={app_styles(scales).colors.text.red}
                             />
                              <VerticalSpacer spaceWidth={40} />
                             <ButtonModal

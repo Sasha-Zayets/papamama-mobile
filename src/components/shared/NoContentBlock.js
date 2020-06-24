@@ -44,7 +44,7 @@ const NoContentBlock = ({ navigation, title, note, toMainLink, toMenuLink, icon 
                     toMainLink
                         ? <View style={styles(scales).btn_container}>
                             <ButtonOrder
-                                color={app_styles(scales).colors.app.blue}
+                                color={app_styles(scales).colors.app.black}
                                 title={translator.translate(language, "На головний екран")}
                                 callback={() => navigation.navigate('Menu')}
                             />
@@ -55,7 +55,7 @@ const NoContentBlock = ({ navigation, title, note, toMainLink, toMenuLink, icon 
                     toMenuLink
                         ? <View style={styles(scales).btn_container}>
                             <ButtonOrder
-                                color={app_styles(scales).colors.app.blue}
+                                color={app_styles(scales).colors.app.black}
                                 title={translator.translate(language, "До меню")}
                                 callback={() => navigation.navigate('Menu')}
                             />

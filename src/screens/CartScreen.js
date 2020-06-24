@@ -143,7 +143,7 @@ const CartScreen = ({navigation}) => {
                                         </View>
                                         <Spacer spaceHeight={40}/>
                                         <ButtonPrimary
-                                            color={app_styles(scales).colors.app.blue}
+                                            color={app_styles(scales).colors.app.black}
                                             callback={() => navigation.navigate('MakeOrder')}
                                             title={translator.translate(language, "Оформити замовлення")}
                                         />

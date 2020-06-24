@@ -16,7 +16,7 @@ const IcoMoonIcon = createIconSetFromIcoMoon(icoMoonConfig, 'icomoon', 'icomoon.
 //Localization
 import translator from "../../translator/translator";
 //Helpers
-import {formatPrice, escapeHtml, prepareLanguageToHttpRequest, notEmptyString} from "../../helpers/helpers";
+import {formatPrice, escapeHtml, prepareLanguageToHttpRequest, notEmptyString } from "../../helpers/helpers";
 //Styles
 import styles from '../../styles/components/menu/product-card-menu';
 import {app_styles} from '../../styles/app_styles';
@@ -188,12 +188,35 @@ const ProductCardMenu = ({product, navigation}) => {
                                 <>
                                     {/* Product Image */}
                                     <View style={styles(scales).product_thumbnail_container}>
-                                        <IntelligentImage
-                                            thumbnailStyles={styles(scales).product_thumbnail}
-                                            thumbnailSource={product.image_preview}
-                                            fullSizeSource={product.image}
-                                            fullSizeStyles={styles(scales).product_image}
-                                        />
+                                        {
+                                            product.short_description_mobile_app.length === 0
+                                            ?   (
+                                                    <>
+                                                        <TouchableOpacity
+                                                            onPress={() => cartHandler("+")}
+                                                            activeOpacity={hasOwnScreen() ? .8 : 1}
+                                                        >
+                                                            <Image
+                                                                source={{uri: product.image_preview}}
+                                                                style={styles(scales).product_thumbnail}
+                                                                resizeMode="cover" />
+                                                        </TouchableOpacity>
+                                                    </>
+                                                )
+                                            :   (
+                                                    <>
+                                                        <TouchableOpacity
+                                                            onPress={() => hasOwnScreen() ? navigation.navigate('Product', {'productId': product.id}) : null}
+                                                            activeOpacity={hasOwnScreen() ? .8 : 1}
+                                                        >
+                                                            <Image
+                                                                source={{uri: product.image_preview}}
+                                                                style={styles(scales).product_thumbnail}
+                                                                resizeMode="cover" />
+                                                        </TouchableOpacity>
+                                                    </>
+                                                )
+                                        }
                                         {
                                             product.badges && product.badges.length
                                             ? addBadge()
@@ -247,7 +270,7 @@ const ProductCardMenu = ({product, navigation}) => {
                                                                               onPress={() => cartHandler()} activeOpacity={0.5}>
                                                                 <View style={styles(scales).manipulator_subtract_button}>
                                                                     <IcoMoonIcon name="minus"
-                                                                                 color={app_styles(scales).colors.text.grey}
+                                                                                 color={app_styles(scales).colors.text.black}
                                                                                  size={Math.round(scales.widthScale * 14)}/>
                                                                 </View>
                                                             </TouchableOpacity>

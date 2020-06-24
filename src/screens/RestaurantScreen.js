@@ -309,7 +309,7 @@ const RestaurantScreen = ({navigation}) => {
                                                                 icon
                                                                 iconName="menu1"
                                                                 iconSize={19}
-                                                                color={app_styles(scales).colors.app.blue}
+                                                                color={app_styles(scales).colors.app.black}
                                                             />
                                                         </View>
                                                         <Spacer spaceHeight={20}/>

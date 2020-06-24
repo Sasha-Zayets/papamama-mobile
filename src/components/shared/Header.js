@@ -83,7 +83,7 @@ const Header = ({navigation, backAllowed, title, exclamation, nocart, exclamatio
                                                   onPress={() => navigation.goBack()}
                                                   activeOpacity={0.6}
                                 >
-                                    <IcoMoonIcon name="left-arrow" color={app_styles(scales).colors.app.black}
+                                    <IcoMoonIcon name="left-arrow" color={app_styles(scales).colors.app.white}
                                                  size={Math.round(scales.widthScale * 24)}
                                     />
                                 </TouchableOpacity>
@@ -93,7 +93,7 @@ const Header = ({navigation, backAllowed, title, exclamation, nocart, exclamatio
                                             <TouchableOpacity style={styles(scales).bell_container}
                                                               onPress={() => navigation.navigate('Notifications')}
                                                               activeOpacity={0.6}>
-                                                <IcoMoonIcon name="bell1" color={app_styles(scales).colors.app.black}
+                                                <IcoMoonIcon name="bell1" color={app_styles(scales).colors.app.white}
                                                              size={Math.round(scales.widthScale * 25)}/>
                                                 {
                                                     unreadNotifications
@@ -132,7 +132,7 @@ const Header = ({navigation, backAllowed, title, exclamation, nocart, exclamatio
                                             <TouchableOpacity style={styles(scales).bell_container}
                                                               onPress={() => navigation.navigate('Notifications')}
                                                               activeOpacity={0.6}>
-                                                <IcoMoonIcon name="bell1" color={app_styles(scales).colors.app.black}
+                                                <IcoMoonIcon name="bell1" color={app_styles(scales).colors.app.white}
                                                              size={Math.round(scales.widthScale * 26)}/>
                                                 {
                                                     unreadNotifications
@@ -168,7 +168,10 @@ const Header = ({navigation, backAllowed, title, exclamation, nocart, exclamatio
                             )
                             : (
                                 <View style={{ backgroundColor: 'black'}}>
-                                  <Image source={require("../../../assets/images/old-logo.png")} resizeMode={'cover'}/>
+                                  <Image
+                                      source={require("../../../assets/images/new-logo.png")}
+                                      style={styles(scales).logo_img}
+                                      resizeMode={'contain'}/>
                                 </View>
                               )
 
@@ -185,7 +188,7 @@ const Header = ({navigation, backAllowed, title, exclamation, nocart, exclamatio
                                                               onPress={() => setShowDeliveryDetails(true)} activeOpacity={0.6}>
                                                 <IcoMoonIcon
                                                     size={Math.round(scales.widthScale * 25)}
-                                                    color={app_styles(scales).colors.app.black}
+                                                    color={app_styles(scales).colors.app.white}
                                                     name={"delivery-truck"}
                                                 />
                                             </TouchableOpacity>
@@ -202,7 +205,7 @@ const Header = ({navigation, backAllowed, title, exclamation, nocart, exclamatio
                                                         onPress={() => setShowDeliveryDetails(true)} activeOpacity={0.6}>
                                                         <IcoMoonIcon
                                                             size={Math.round(scales.widthScale * 25)}
-                                                            color={app_styles(scales).colors.app.black}
+                                                            color={app_styles(scales).colors.app.white}
                                                             name={"delivery-truck"}
                                                         />
                                                     </TouchableOpacity>
@@ -213,7 +216,7 @@ const Header = ({navigation, backAllowed, title, exclamation, nocart, exclamatio
                                                         onPress={() => navigation.navigate('Cart')} activeOpacity={0.6}>
                                                         <Animated.View style={{transform: [{scale: scale}]}}>
                                                             <IcoMoonIcon name="shopping-bag"
-                                                                         color={app_styles(scales).colors.app.black}
+                                                                         color={app_styles(scales).colors.app.white}
                                                                          size={Math.round(scales.widthScale * 26)}/>
                                                             {
                                                                 itemsInCart
@@ -239,7 +242,7 @@ const Header = ({navigation, backAllowed, title, exclamation, nocart, exclamatio
                                             <TouchableOpacity style={styles(scales).settings_container}
                                                               onPress={() => navigation.navigate('Settings')}
                                                               activeOpacity={0.6}>
-                                                <IcoMoonIcon name="settings" color={app_styles(scales).app_black}
+                                                <IcoMoonIcon name="settings" color={app_styles(scales).app.white}
                                                              size={Math.round(scales.widthScale * 22)}/>
                                             </TouchableOpacity>
                                         )

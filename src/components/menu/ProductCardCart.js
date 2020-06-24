@@ -263,7 +263,7 @@ const ProductCardCart = ({product}) => {
                                 <TouchableOpacity style={styles(scales).button_container} onPress={() => cartHandler()}
                                                   activeOpacity={0.5}>
                                     <View style={styles(scales).manipulator_subtract_button}>
-                                        <IcoMoonIcon name="minus" color={app_styles(scales).colors.text.light_grey}
+                                        <IcoMoonIcon name="minus" color={app_styles(scales).colors.app.black}
                                                      size={Math.round(scales.widthScale * 14)}/>
                                     </View>
                                 </TouchableOpacity>

@@ -53,7 +53,7 @@ const styles = (scales) => StyleSheet.create({
     },    
     product_price: {
         fontFamily: app_styles(scales).fonts.weight.bold,
-        color: app_styles(scales).colors.app.blue
+        color: app_styles(scales).colors.app.black
     },
     weight_dish_note: {
         fontFamily: app_styles(scales).fonts.weight.medium,
@@ -98,7 +98,7 @@ const styles = (scales) => StyleSheet.create({
         width: Math.round(scales.widthScale * 18),
         height: Math.round(scales.widthScale * 18),
         borderRadius: Math.round(scales.widthScale * 18),
-        backgroundColor: app_styles(scales).colors.app.blue,
+        backgroundColor: app_styles(scales).colors.app.black,
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: Math.round(scales.widthScale),
@@ -112,7 +112,7 @@ const styles = (scales) => StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: Math.round(scales.widthScale),
-        borderColor: "#CCCCCC"
+        borderColor: app_styles(scales).colors.app.black
     },    
     remove_button: {
         height: Math.round(scales.heightScale * 30),

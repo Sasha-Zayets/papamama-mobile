@@ -56,9 +56,9 @@ const styles = (scales) => StyleSheet.create({
         alignSelf: 'stretch',
         paddingLeft: Math.round(scales.widthScale * 16),
         paddingVertical: Math.round(scales.heightScale * 8),
-        borderBottomColor: app_styles(scales).colors.app.gold,
+        borderBottomColor: app_styles(scales).colors.app.black,
         borderBottomWidth: Math.round(scales.heightScale),
-        backgroundColor: app_styles(scales).colors.app.blue
+        backgroundColor: app_styles(scales).colors.app.white
     },    
     close_modal_button: {
         width: Math.round(scales.widthScale * 50),
@@ -74,7 +74,7 @@ const styles = (scales) => StyleSheet.create({
     card_title: {
         fontFamily: app_styles(scales).fonts.weight.bold,
         fontSize: Math.round(scales.fontScale * 14),
-        color: app_styles(scales).colors.text.white,
+        color: app_styles(scales).colors.app.black,
         textAlign: 'center'
     },
     card_body: {       

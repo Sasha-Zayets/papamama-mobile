@@ -41,7 +41,7 @@ const styles = (scales) => StyleSheet.create({
     limit_quantity: {
         fontFamily: app_styles(scales).fonts.weight.bold,
         fontSize: app_styles(scales).fonts.size.base,
-        color: app_styles(scales).colors.app.blue,
+        color: app_styles(scales).colors.app.black,
     },
     ingr_price: {
         color: app_styles(scales).colors.app.blue,
@@ -67,7 +67,7 @@ const styles = (scales) => StyleSheet.create({
     total_value_text: {
         fontFamily: app_styles(scales).fonts.weight.bold,
         fontSize: Math.round(scales.fontScale * 16),
-        color: app_styles(scales).colors.app.blue,
+        color: app_styles(scales).colors.app.black,
     },
     total_value_subtitle: {
         fontFamily: app_styles(scales).fonts.weight.regular,
