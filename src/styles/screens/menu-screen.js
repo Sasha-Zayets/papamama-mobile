@@ -11,6 +11,29 @@ const styles = (scales) => StyleSheet.create({
         flex: 1,
         backgroundColor: app_styles(scales).colors.app.white,
     },
+    button_group: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingVertical: Math.round(scales.widthScale * 15),
+        paddingHorizontal: Math.round(scales.widthScale * 5)
+    },
+    button: {
+        height: Math.round(scales.widthScale * 30),
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: app_styles(scales).colors.text.red,
+        paddingHorizontal: Math.round(scales.widthScale * 10),
+        borderRadius: Math.round(scales.widthScale * 10),
+    },
+    icon: {
+      marginRight: Math.round(scales.widthScale * 10)
+    },
+    button_text: {
+        color: app_styles(scales).colors.app.white,
+    },
     categories_list_container: {
         backgroundColor: app_styles(scales).colors.app.white
     },

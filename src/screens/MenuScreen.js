@@ -215,6 +215,22 @@ const MenuScreen = ({navigation}) => {
                                         isLogged={isLoggedIn}
                                         unreadNotifications={unreadNotifications}
                                     />
+                                    <View style={styles(scales).button_group}>
+                                        <View style={styles(scales).button}>
+                                            <IcoMoonIcon name="phone-alt"
+                                                         color={app_styles(scales).colors.text.white}
+                                                         style={styles(scales).icon}
+                                                         size={Math.round(scales.widthScale * 14)}/>
+                                            <Text style={styles(scales).button_text}>Зв’язок з оператором</Text>
+                                        </View>
+                                        <View style={styles(scales).button}>
+                                            <IcoMoonIcon name="delivery-truck"
+                                                         color={app_styles(scales).colors.text.white}
+                                                         style={styles(scales).icon}
+                                                         size={Math.round(scales.widthScale * 14)}/>
+                                            <Text style={styles(scales).button_text}>Онлайн доставка</Text>
+                                        </View>
+                                    </View>
                                     <View style={styles(scales).body}>
                                         {
                                             !fetchingError
