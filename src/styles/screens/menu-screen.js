@@ -24,7 +24,7 @@ const styles = (scales) => StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: app_styles(scales).colors.text.red,
+        backgroundColor: app_styles(scales).colors.app.black,
         paddingHorizontal: Math.round(scales.widthScale * 10),
         borderRadius: Math.round(scales.widthScale * 10),
     },

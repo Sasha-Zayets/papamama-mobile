@@ -19,7 +19,7 @@ const DataLoadingIndicator = () => {
     //Template
     return (
         <View style={styles(scales).container}>
-            <ActivityIndicator animating size="large" color={app_styles(scales).colors.app.blue}/>
+            <ActivityIndicator animating size="large" color={app_styles(scales).colors.app.black}/>
         </View>
     );
 }
