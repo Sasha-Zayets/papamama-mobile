@@ -66,6 +66,9 @@ const styles = (scales) => StyleSheet.create({
         fontFamily: app_styles(scales).fonts.weight.regular,
         color: app_styles(scales).colors.text.grey,
     },
+    container: {
+      padding: Math.round(scales.widthScale * 15),
+    }
 });
 
 

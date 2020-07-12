@@ -15,12 +15,13 @@ const app_styles = (scales) => {
                 black: "#000000",
                 blue: "#465C87",
                 light_blue: "#72B0E1",
-                orange: "ED7225",
+                orange: "#ED7225",
                 gold: "#e6c176",
                 green: "#1AA056",
                 dark_green: "#4a7356",
                 light_black: '#565E6B',
                 silver_light: '#9e9e9e',
+                red: "#aa141d",
             }
         },
         fonts: {

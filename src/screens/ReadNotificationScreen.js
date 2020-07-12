@@ -118,18 +118,18 @@ const ReadNotificationScreen = ({navigation}) => {
                                             <View style={styles(scales).icon_container}>
                                                 <IcoMoonIcon
                                                     name="date"
-                                                    color={app_styles(scales).colors.text.primary}
+                                                    color={app_styles(scales).colors.text.black}
                                                     size={Math.round(scales.widthScale * 18)}
                                                 />
                                             </View>
                                             <Text style={styles(scales).title}>{transformUnixTime(notification.date)}</Text>
-                                        </View>                                        
+                                        </View>
                                         <Spacer spaceHeight={5}/>
                                         <View style={styles(scales).row}>
                                             <View style={styles(scales).icon_container}>
                                                 <IcoMoonIcon
                                                     name="bell1"
-                                                    color={app_styles(scales).colors.text.primary}
+                                                    color={app_styles(scales).colors.text.black}
                                                     size={Math.round(scales.widthScale * 18)}
                                                 />
                                             </View>
@@ -149,7 +149,7 @@ const ReadNotificationScreen = ({navigation}) => {
                                                                 icon
                                                                 iconName="phone-volume"
                                                                 iconSize={18}
-                                                                color={app_styles(scales).colors.app.blue}
+                                                                color={app_styles(scales).colors.app.black}
                                                                 noStretch
                                                             />
                                                         </View>
