@@ -608,34 +608,18 @@ const MakeOrderScreen = ({navigation}) => {
                                                         <Text
                                                             style={styles(scales).title}>{translator.translate(language, "Адреса доставки")}</Text>
                                                         <Spacer spaceHeight={10}/>
-                                                        <SelectInput
-                                                            dataList={deliveryCities}
-                                                            callback={handleFormInputs}
-                                                            placeholder={translator.translate(language, "Місто / населений пункт")}
-                                                            modalTitle={translator.translate(language, "Виберіть місто / населений пункт")}
-                                                            clearError={clearValidationErrors}
-                                                            defaultValue={orderData.city}
-                                                            name="city"
-                                                            error={validationErrors.city}
+                                                        <SimpleInput
+                                                          callback={handleFormInputs}
+                                                          placeholder={translator.translate(language, "Місто / населений пункт")}
+                                                          value="Рівне"
+                                                          name="city"
+                                                          editable={false}
+                                                          clearError={clearValidationErrors}
+                                                          error={validationErrors.city}
                                                         />
+
                                                         <Spacer spaceHeight={10}/>
-                                                        {
-                                                            orderData.city && orderData.city.id === 0
-                                                                ? (
-                                                                    <>
-                                                                        <SimpleInput
-                                                                            callback={handleFormInputs}
-                                                                            placeholder={translator.translate(language, "Назва населеного пункту")}
-                                                                            clearError={clearValidationErrors}
-                                                                            value={orderData.other_city_name}
-                                                                            name="other_city_name"
-                                                                            error={validationErrors.other_city_name}
-                                                                        />
-                                                                        <Spacer spaceHeight={10}/>
-                                                                    </>
-                                                                )
-                                                                : null
-                                                        }
+
                                                         <SimpleInput
                                                             callback={handleFormInputs}
                                                             placeholder={translator.translate(language, "Вулиця")}

@@ -28,6 +28,7 @@
     "react-native-safe-area-view": "^1.0.0",
     "react-native-screens": "~2.2.0",
     "react-native-sideswipe": "^1.5.0",
+    "react-native-snap-carousel": "^3.9.1",
     "react-native-star-rating": "^1.1.0",
     "react-native-status-bar-height": "^2.5.0",
     "react-native-tab-view": "^2.14.2",

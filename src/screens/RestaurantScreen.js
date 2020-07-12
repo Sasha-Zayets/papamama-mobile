@@ -14,11 +14,12 @@ import {
     DataLoadingIndicator,
     VerticalSpacer,
     IntelligentImage,
-    HorizontalDivider
+    HorizontalDivider,
 } from "../components/shared";
+import ParallaxImageSlider from '../components/shared/ParallaxImageSlider';
+
 import {ButtonOrder} from "../components/buttons";
 import {MenuModal, NetworkErrorModal} from "../components/modals";
-import CarouselRestaurant from "../components/restaurant/CarouselRestaurant";
 //React-native-vector-icons package
 import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
 import icoMoonConfig from '../../selection.json';
@@ -49,7 +50,7 @@ const RestaurantScreen = ({navigation}) => {
 
     //Hooks and Methods
     useEffect(() => {
-        
+
         setBodyTextStyles({
             fontFamily: app_styles(scales).fonts.weight.regular,
             fontSize: Math.round(scales.fontScale * 14),
@@ -173,9 +174,6 @@ const RestaurantScreen = ({navigation}) => {
     }
 
 
-
-
-
     //Template
     return (
         <>
@@ -184,7 +182,7 @@ const RestaurantScreen = ({navigation}) => {
                     onWillFocus={handleFocus}
                 />
                 <Header
-                    title={translator.translate(language, 'Про Emma Pizza')}
+                    title={translator.translate(language, 'Про PapaMama')}
                     navigation={navigation}
                     backAllowed
                     noIcons
@@ -206,10 +204,9 @@ const RestaurantScreen = ({navigation}) => {
                                                         hasBanner()
                                                             ? (
                                                                 <>
-                                                                    <CarouselRestaurant
-                                                                        scales={scales}
-                                                                        data={emmaPizzaRestaurant.top_banner.images}
-                                                                    />
+                                                                    <ParallaxImageSlider
+                                                                      scales={scales}
+                                                                      entries={emmaPizzaRestaurant.gallery_2.images} />
                                                                     <Spacer spaceHeight={20}/>
                                                                 </>
                                                             )

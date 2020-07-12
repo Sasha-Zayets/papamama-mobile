@@ -143,6 +143,7 @@ const getEmmaPizzaRestaurant = dispatch => async () => {
         if (response) {
             let restaurant = response.data.data;
                 restaurant.page_data = response.data.page_data || null;
+                restaurant.gallery_2 = response.data.gallery_2 || null;
             dispatch({ type: 'getEmmaPizzaRestaurant', payload: { restaurant, language } });
             return restaurant;
         }
@@ -170,7 +171,7 @@ const getAppSettings = dispatch => async () => {
             let contacts = settings.contacts;
 
             let home_city_id = settings.orderDefaultCityId ? parseInt(settings.orderDefaultCityId) : 0;
-            
+
             if (settings && contacts) {
                 dispatch({ type: 'setSettings', payload: { settings, contacts, home_city_id } });
                 return settings;

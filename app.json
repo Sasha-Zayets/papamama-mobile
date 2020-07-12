@@ -10,7 +10,7 @@
     ],
     "version": "1.2.0",
     "orientation": "portrait",
-    "icon": "./assets/images/new-logo.png",
+    "icon": "./assets/icon.png",
     "notification": {
       "icon": "./assets/notifications_icon_rgb.png",
       "iosDisplayInForeground": true
@@ -20,7 +20,7 @@
       "barStyle": "dark-content"
     },
     "splash": {
-      "image": "./assets/images/new-logo.png",
+      "image": "./assets/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#000000"
     },

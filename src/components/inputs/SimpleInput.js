@@ -15,7 +15,7 @@ import { app_styles } from '../../styles/app_styles';
 
 
 //----COMPONENT----//
-const SimpleInput = ({ value, placeholder, error, clearError, callback, name, number }) => {
+const SimpleInput = ({ value, placeholder, error, clearError, callback, name, number, editable = true }) => {
     //Data and State
     const { state: { scales } } = useContext(AppSettingsContext);
     const [isFocused, setIsFocused] = useState(false);
@@ -48,6 +48,7 @@ const SimpleInput = ({ value, placeholder, error, clearError, callback, name, nu
                     onFocus={arrangeFocus}
                     onBlur={() => setIsFocused(false)}
                     keyboardType={number ? "phone-pad" : "default"}
+                    editable={editable}
                 />
             </View>
             {
