@@ -27,7 +27,7 @@ const SafeView = ({ children }) => {
         <View style={{
             width: "100%",
             height: STATUS_BAR_HEIGHT,
-            backgroundColor: app_styles(scales).colors.app.blue
+            backgroundColor: app_styles(scales).colors.app.black
         }}>
             <StatusBar
                 barStyle="light-content"

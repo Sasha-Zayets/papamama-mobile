@@ -8,7 +8,7 @@ import {TabView, SceneMap } from 'react-native-tab-view';
 import {Context as AppSettingsContext} from "../context/AppSettingsContext";
 import {Context as MenuContext} from "../context/MenuContext";
 //Navigation Events
-import {NavigationEvents} from 'react-navigation';
+import {NavigationEvents, withNavigation} from 'react-navigation';
 //React-native-vector-icons package
 import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
 import icoMoonConfig from '../../selection.json';
@@ -39,6 +39,7 @@ import axios from "axios";
 //----COMPONENT----//
 const ProductScreen = ({navigation}) => {
   const productsData = navigation.getParam('products');
+  const indexProduct = navigation.getParam('index');
 
   //Data and State
   const {state: {scales, language, appSettings}} = useContext(AppSettingsContext);
@@ -60,7 +61,7 @@ const ProductScreen = ({navigation}) => {
   const [ingredientsLimit, setIngredientsLimit] = useState(null);
 
   const [totalProducts, setTotalProducts] = useState([]);
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(indexProduct - 1);
   const [routes, setRoutes] = useState(totalProducts);
 
   //Methods and hooks
@@ -81,9 +82,6 @@ const ProductScreen = ({navigation}) => {
     const productId = navigation.getParam('productId');
 
     const resultData = productsData.map((item, ind) => {
-      if(item.id === productId) {
-        setIndex(ind);
-      }
       return {
         ...item,
         key: item.id,
@@ -306,7 +304,7 @@ const ProductScreen = ({navigation}) => {
     let result = {}
 
     routes.map((item, ind) => {
-      result[item.key] = () => productRender(ind);
+      result[item.key] = () => productRender(ind, item.key);
     });
 
     return result
@@ -316,9 +314,10 @@ const ProductScreen = ({navigation}) => {
 
   const initialLayout = { width: Dimensions.get('window').width };
 
-  const productRender = (indexValue) => (
+  const productRender = (indexValue, jumpTo) => (
     <View
       key={indexValue}
+      jumpTo={jumpTo}
       style={styles(scales).body}>
       <ScrollView showsVerticalScrollIndicator={false} bounces={false}
                   keyboardShouldPersistTaps={'always'} contentContainerStyle={{flexGrow: 1}}>
