@@ -43,7 +43,7 @@ const ProductCardMenu = ({product, navigation, products, indexProduct}) => {
   const cartHandler = (operator = "-") => {
 
     if (hasOwnScreen()) {
-      return navigation.navigate('Product', {'productId': product.id})
+      return navigation.navigate('Product', {'productId': product.id, products: products, index: indexProduct})
     }
 
     let id = Number(product.id);
