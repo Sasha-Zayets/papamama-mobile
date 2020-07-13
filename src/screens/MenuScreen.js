@@ -57,7 +57,6 @@ const MenuScreen = ({navigation}) => {
 
     //Hooks and Methods
     useEffect(() => {
-        console.log(appSettings)
         if(Object.keys(appSettings).length){
 
         }
@@ -205,7 +204,8 @@ const MenuScreen = ({navigation}) => {
                 onWillFocus={handleFocus}
             />
             {
-                !(networkError)
+                // (settingsNetworkError || networkError)
+                !false
                     ? (
                         !isSettingsDataFetching
                             ? (
