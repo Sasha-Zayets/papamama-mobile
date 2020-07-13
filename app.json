@@ -46,12 +46,12 @@
         ],
         "facebookScheme": "fb668596570367881",
         "facebookAppId": "668596570367881",
-        "facebookDisplayName": "EMMA Pizza"
+        "facebookDisplayName": "PapaMama Pizza"
       },
-      "bundleIdentifier": "com.devseonet.emmapizza"
+      "bundleIdentifier": "com.devseonet.papamama"
     },
     "android": {
-      "package": "com.devseonet.emmapizza",
+      "package": "com.devseonet.papamama",
       "versionCode": 3,
       "permissions": [
         "CAMERA",
@@ -60,6 +60,6 @@
     },
     "facebookScheme": "fb668596570367881",
     "facebookAppId": "668596570367881",
-    "facebookDisplayName": "EMMA Pizza"
+    "facebookDisplayName": "PapaMama Pizza"
   }
 }
