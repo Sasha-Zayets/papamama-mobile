@@ -165,25 +165,7 @@ const ProductCardMenu = ({product, navigation, products, indexProduct}) => {
         <View style={styles(scales).inner_container}>
           {
             product.is_constructor
-              ? (
-                <TouchableOpacity style={styles(scales).banner_wrap}
-                                  onPress={() => navigation.navigate('PizzaConstructor')}
-                                  activeOpacity={.8}>
-                  <View style={app_styles(scales).row_start}>
-                    <View style={styles(scales).img_container_constructor}>
-                      <Image
-                        source={require("../../../assets/images/pizza_constructor.png")}
-                        style={styles(scales).img_constructor}
-                      />
-                    </View>
-                    <View style={styles(scales).constr_descr_container}>
-                      <Text style={styles(scales).product_title}>{translator.translate(language, 'Зібрати піцу')}</Text>
-                      <Spacer spaceHeight={6}/>
-                      <Text style={styles(scales).product_description}>{constructorMessage()}!</Text>
-                    </View>
-                  </View>
-                </TouchableOpacity>
-              )
+              ? null
               : (
                 <>
                   {/* Product Image */}
@@ -270,7 +252,7 @@ const ProductCardMenu = ({product, navigation, products, indexProduct}) => {
                             <TouchableOpacity style={styles(scales).cart_button}
                                               onPress={() => cartHandler("+")} activeOpacity={0.7}>
                               <IcoMoonIcon name="shopping-bag"
-                                           color={app_styles(scales).colors.app.orange}
+                                           color={app_styles(scales).colors.app.black}
                                            size={Math.round(scales.widthScale * 23)}/>
                             </TouchableOpacity>
                           )

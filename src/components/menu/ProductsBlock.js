@@ -83,7 +83,7 @@ export default class ProductsBlock extends React.PureComponent {
 
       const language = this.state.language;
       const lang = prepareLanguageToHttpRequest(language);
-      const url = `${BASE_URL}/product/products-for-category?category_id=${category.id}&lang=${lang}&version=${APP_VERSION}&page=${page}&limit=8`;
+      const url = `${BASE_URL}/product/products-for-category?category_id=${category.id}&lang=${lang}&version=${APP_VERSION}&page=${page}&limit=30`;
       const response = await axios.get(url);
 
       if (response && response.data && response.data.data) {
