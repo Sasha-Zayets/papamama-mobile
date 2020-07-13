@@ -57,9 +57,11 @@ const MenuScreen = ({navigation}) => {
 
     //Hooks and Methods
     useEffect(() => {
+        console.log(appSettings)
         if(Object.keys(appSettings).length){
-            getCategories();
+
         }
+        getCategories();
     }, [appSettings, language])
 
 
@@ -73,6 +75,7 @@ const MenuScreen = ({navigation}) => {
             const lang = prepareLanguageToHttpRequest(language);
             const url = `${BASE_URL}/product/categories?lang=${lang}&version=${APP_VERSION}&parent_id=0`;
             const response = await axiosWithErrorHandler.get(url);
+
             if (response) {
                 let categories = response.data.data;
                 if (categories.length) {
@@ -196,14 +199,13 @@ const MenuScreen = ({navigation}) => {
         setIsSettingsDataFetched(false);
     }
 
-
     return (
         <>
             <NavigationEvents
                 onWillFocus={handleFocus}
             />
             {
-                !(settingsNetworkError || networkError)
+                !(networkError)
                     ? (
                         !isSettingsDataFetching
                             ? (
@@ -267,13 +269,15 @@ const MenuScreen = ({navigation}) => {
                     )
                     : (
                         <>
-                            <StatusBar backgroundColor={app_styles(scales).colors.app.blue} barStyle="light-content"/>
+                            <StatusBar backgroundColor={app_styles(scales).colors.app.black} barStyle="light-content"/>
                             <View style={styles(scales).error_container}>
-                                <IcoMoonIcon
-                                    name="logo_emma"
-                                    size={Math.round(scales.widthScale * 100)}
-                                    color={app_styles(scales).colors.app.white}
-                                />
+                                <Image
+                                    source={require("../../assets/images/new-logo.png")}
+                                    style={{
+                                        width: Math.round(scales.widthScale * 300),
+                                        height: Math.round(scales.widthScale * 120)
+                                    }}
+                                    resizeMode={'contain'}/>
                                 <Spacer spaceHeight={40}/>
                                 <Text style={styles(scales).error_title}>OOOPPPSSS....</Text>
                                 <Spacer spaceHeight={15}/>
@@ -284,7 +288,7 @@ const MenuScreen = ({navigation}) => {
                                 <Spacer spaceHeight={30}/>
                                 <View style={{paddingHorizontal: Math.round(scales.widthScale * 50), alignSelf: 'stretch'}}>
                                     <ButtonOrder
-                                        color={'#ED7225'}
+                                        color={app_styles(scales).colors.app.red}
                                         title={"Спробувати ще"}
                                         callback={handleTryAgain}
                                     />
