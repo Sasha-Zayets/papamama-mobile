@@ -165,7 +165,6 @@ const getAppSettings = dispatch => async () => {
         const lang = prepareLanguageToHttpRequest(language);
         const url = `${BASE_URL}/setting/settings?lang=${lang}&version=${APP_VERSION}`;
         const response = await axiosWithErrorHandler.get(url);
-        console.log(response)
 
         if (response) {
             let settings = response.data.data || null;

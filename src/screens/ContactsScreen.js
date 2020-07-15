@@ -33,7 +33,6 @@ const ContactsScreen = ({navigation}) => {
   //Data and State
   const {state: {scales, language, emmaPizzaRestaurant, emmaPizzaRestaurantMetaData, settingsNetworkError, screen_width, contacts}, getEmmaPizzaRestaurant, clearSettingsNetworkError} = useContext(AppSettingsContext);
   const [isDataLoading, setIsDataLoading] = useState(false);
-
   const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
@@ -42,6 +41,8 @@ const ContactsScreen = ({navigation}) => {
 
   const loadDataRestoraund = async () => {
     try {
+      setIsDataLoading(true);
+
       const language = language || await AsyncStorage.getItem('language');
       const lang = prepareLanguageToHttpRequest(language);
 
@@ -49,15 +50,15 @@ const ContactsScreen = ({navigation}) => {
       const response = await axiosWithErrorHandler.get(url);
 
       const totalInfo = []
+      const restarauntArray = response.data.data.restaurants;
 
-      response.data.data.restaurants.forEach((item) => {
-        getInfoRestaurant(item.id, lang)
-          .then((data) => {
-            totalInfo.push(data);
-          });
-      });
+      for(let key in restarauntArray) {
+        const data = await getInfoRestaurant(restarauntArray[key].id, lang);
+        totalInfo.push(data);
+      }
 
       setRestaurants(totalInfo);
+      setIsDataLoading(false);
     } finally {
       setIsDataLoading(false)
     }
@@ -131,8 +132,8 @@ const ContactsScreen = ({navigation}) => {
                       </>
                     )
                     : <NetworkErrorModal
-                      isOpened={settingsNetworkError}
-                      closeCallback={clearSettingsNetworkError}
+                        isOpened={settingsNetworkError}
+                        closeCallback={clearSettingsNetworkError}
                     />
                 )
                 : <DataLoadingIndicator/>

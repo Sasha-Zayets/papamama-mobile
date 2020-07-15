@@ -93,14 +93,22 @@ const ContactsCard = ({ restaurant }) => {
             activeOpacity={.7}
             style={styles(scales).information_container}>
             <View style={styles(scales).blocks}>
-              <IcoMoonIcon
-                name="phone-alt"
-                color={app_styles(scales).colors.app.black}
-                size={Math.round(scales.widthScale * 18)}
-              />
-              <Text style={styles(scales).value_phone} numberOfLines={1}>
-                { restaurant.phone }
-              </Text>
+              {
+                restaurant.phone.length === 0
+                  ? (
+                    <>
+                      <IcoMoonIcon
+                        name="phone-alt"
+                        color={app_styles(scales).colors.app.black}
+                        size={Math.round(scales.widthScale * 18)}
+                      />
+                      <Text style={styles(scales).value_phone} numberOfLines={1}>
+                        { restaurant.phone }
+                      </Text>
+                    </>
+                  )
+                : null
+              }
             </View>
           </TouchableOpacity>
           <View style={[styles(scales).blocks, {justifyContent: 'flex-end'}]}>
