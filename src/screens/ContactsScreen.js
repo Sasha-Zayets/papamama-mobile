@@ -2,7 +2,7 @@
 //React
 import React, {useContext, useState, useEffect} from 'react';
 //React native
-import {View, ScrollView, Text, Animated, Easing, Linking} from 'react-native';
+import {View, ScrollView, Text, Animated, Easing, Linking, AsyncStorage} from 'react-native';
 //Context
 import {Context as AppSettingsContext} from "../context/AppSettingsContext";
 //React-native-vector-icons package
@@ -24,47 +24,49 @@ import {prepareLanguageToHttpRequest, notEmptyString} from "../helpers/helpers";
 //Styles
 import styles from '../styles/screens/contacts-screen';
 
+import {BASE_URL} from "../different/global_vars";
+import axiosWithErrorHandler from "../services/axiosWithErrorHandler";
+
 
 //----COMPONENT----//
 const ContactsScreen = ({navigation}) => {
   //Data and State
   const {state: {scales, language, emmaPizzaRestaurant, emmaPizzaRestaurantMetaData, settingsNetworkError, screen_width, contacts}, getEmmaPizzaRestaurant, clearSettingsNetworkError} = useContext(AppSettingsContext);
   const [isDataLoading, setIsDataLoading] = useState(false);
-  const [animatedHeight, setAnimatedHeight] = useState(new Animated.Value(Math.round(scales.heightScale * 270)));
-  const [extendedCard, setExtendedCard] = useState(false);
 
+  const [restaurants, setRestaurants] = useState([]);
 
-  //Hooks and Methods
-  const widenPhoto = () => {
-    Animated.timing(animatedHeight, {
-      toValue: Math.round(scales.widthScale * 110),
-      duration: 300,
-      easing: Easing.linear
-    }).start();
-  }
+  useEffect(() => {
+    loadDataRestoraund();
+  }, []);
 
+  const loadDataRestoraund = async () => {
+    try {
+      const language = language || await AsyncStorage.getItem('language');
+      const lang = prepareLanguageToHttpRequest(language);
 
-  const shortenPhoto = () => {
-    Animated.timing(animatedHeight, {
-      toValue: Math.round(scales.widthScale * 270),
-      duration: 300,
-      easing: Easing.linear
-    }).start();
-  }
+      const url = `${BASE_URL}/restaurant/restaurants?lang=${lang}`;
+      const response = await axiosWithErrorHandler.get(url);
 
+      const totalInfo = []
 
-  const toggleHeight = () => {
-    if (extendedCard) {
-      shortenPhoto();
-    } else {
-      widenPhoto();
+      response.data.data.restaurants.forEach((item) => {
+        getInfoRestaurant(item.id, lang)
+          .then((data) => {
+            totalInfo.push(data);
+          });
+      });
+
+      setRestaurants(totalInfo);
+    } finally {
+      setIsDataLoading(false)
     }
-    setExtendedCard(!extendedCard)
   }
 
-
-  const getArrowPosition = () => {
-    return !extendedCard ? "180deg" : "0deg";
+  const getInfoRestaurant = async (id, lang) => {
+    const getUrl = `${BASE_URL}/restaurant/restaurant?lang=${lang}&restaurant_id=${id}`
+    const { data } = await axiosWithErrorHandler.get(getUrl);
+    return data.data;
   }
 
   const handleFocus = async () => {
@@ -79,62 +81,12 @@ const ContactsScreen = ({navigation}) => {
     setIsDataLoading(false);
   }
 
-  const makeCall = () => {
-    let cleanedPhoneNumber = emmaPizzaRestaurant.phone.replace(/\D||\s/g, "");
-
-    if (cleanedPhoneNumber.indexOf('38') === 0) {
-      cleanedPhoneNumber = cleanedPhoneNumber.substring(2);
-    }
-    const link = Platform.OS === 'ios' ? `tel://+38${cleanedPhoneNumber}` : `tel:+38${cleanedPhoneNumber}`;
-    Linking.openURL(link)
-  }
-
   const sendEmail = () => {
     let address = contacts.email;
     if (!notEmptyString(address)) return;
     let link = `mailto: ${contacts.email}`
     return Linking.openURL(link)
   }
-
-  const openMap = () => {
-    let link = emmaPizzaRestaurant.gmap;
-    return notEmptyString(link) ? Linking.openURL(link.trim()) : false;
-  }
-
-  const hasAtLeLeastOneSocial = () => {
-    return notEmptyString(emmaPizzaRestaurant.facebook)
-      || notEmptyString(emmaPizzaRestaurant.instagram)
-      || notEmptyString(emmaPizzaRestaurant.youtube)
-      || notEmptyString(emmaPizzaRestaurant.tripadvisor)
-  }
-
-
-  const handleLink = async (link, type) => {
-    if (type === 'instagram') {
-      let urlParts = link.split('/');
-      let username = urlParts[urlParts.length - 1];
-      let url = `instagram://user?username=${username}`;
-      try {
-        await Linking.openURL(url)
-      } catch (err) {
-        await Linking.openURL(link.trim())
-      }
-    } else if (type === 'youtube') {
-      let urlParts = link.split('/');
-      let chanelName = urlParts[urlParts.length - 1];
-      let url = `youtube://chanel=${chanelName}`;
-      try {
-        await Linking.openURL(url)
-      } catch (err) {
-        await Linking.openURL(link.trim())
-      }
-    } else {
-      await Linking.openURL(link.trim())
-    }
-  }
-
-
-
 
   //Template
   return (
@@ -165,9 +117,16 @@ const ContactsScreen = ({navigation}) => {
                     ? (
                       <>
                         <View style={styles(scales).container}>
-                          <ContactsCard style={styles(scales).contacts_card}/>
-                          <ContactsCard style={styles(scales).contacts_card}/>
-                          <ContactsCard style={styles(scales).contacts_card}/>
+                          {
+                            restaurants.map((restaurant, index) => {
+                              return (
+                                <ContactsCard
+                                  key={index}
+                                  restaurant={restaurant}
+                                  style={styles(scales).contacts_card}/>
+                              )
+                            })
+                          }
                         </View>
                       </>
                     )

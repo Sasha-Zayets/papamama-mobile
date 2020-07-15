@@ -58,9 +58,8 @@ const MenuScreen = ({navigation}) => {
     //Hooks and Methods
     useEffect(() => {
         if(Object.keys(appSettings).length){
-
+          getCategories();
         }
-        getCategories();
     }, [appSettings, language])
 
 
@@ -204,8 +203,7 @@ const MenuScreen = ({navigation}) => {
                 onWillFocus={handleFocus}
             />
             {
-                // (settingsNetworkError || networkError)
-                !false
+                !(settingsNetworkError || networkError)
                     ? (
                         !isSettingsDataFetching
                             ? (
